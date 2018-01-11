@@ -1,0 +1,58 @@
+{
+  "name": "good-map",
+  "version": "1.0.0-alpha.0",
+  "description": "Transform stream for Hapi Good process monitoring",
+  "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/frankthelen/good-map.git"
+  },
+  "keywords": [
+    "hapi",
+    "good",
+    "plugin",
+    "logging",
+    "transformer",
+    "mapper"
+  ],
+  "author": "Frank Thelen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/frankthelen/good-map/issues"
+  },
+  "homepage": "https://github.com/frankthelen/good-map#readme",
+  "scripts": {
+    "lint": "eslint . --ignore-path ./.eslintignore",
+    "test": "NODE_ENV=test mocha --recursive test",
+    "cover": "NODE_ENV=test istanbul cover _mocha -- --recursive test",
+    "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls",
+    "preversion": "npm run lint && npm test"
+  },
+  "engines": {
+    "node": ">=8.9.0"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
+    "coveralls": "^3.0.0",
+    "eslint": "^4.15.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-should-promised": "^2.0.0",
+    "hapi": "^17.2.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^4.1.0",
+    "mocha-lcov-reporter": "^1.3.0",
+    "sinon": "^4.1.3",
+    "sinon-chai": "^2.14.0"
+  },
+  "peerDependencies": {
+    "hapi": ">=17.0.0",
+    "good": ">=8.0.0-rc1"
+  },
+  "dependencies": {
+    "lodash.get": "^4.4.2",
+    "lodash.set": "^4.3.2"
+  }
+}
