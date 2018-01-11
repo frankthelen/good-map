@@ -15,7 +15,7 @@ class GoodMap extends Stream.Transform {
         const newValue = this.map[prop](value);
         set(data, prop, newValue);
       } catch (error) {
-        console.error(error); // eslint-disable-line no-console
+        // console.error(error); // eslint-disable-line no-console
       }
     });
     next(null, data);
