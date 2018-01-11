@@ -21,6 +21,7 @@ npm install --save good-map
 ## Usage
 
 Your Good logging configuration may look like this:
+
 ```javascript
 const Hapi = require('hapi');
 const Good = require('good'),
