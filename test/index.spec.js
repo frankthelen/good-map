@@ -133,4 +133,36 @@ describe('GoodMap', () => {
     expect(result.length).to.equal(3);
     expect(result[2]).to.not.have.property('timestamp');
   });
+
+  it('should provide the log item in the mapping function', async () => {
+    const collect = [];
+    const options = {
+      map: {
+        prop: (value, item) => { collect.push(item); return true; },
+      },
+    };
+    await pipe(options, testEvents);
+    expect(collect.length).to.equal(3);
+    expect(collect[0]).to.deep.equal({ ...testEvents[0], prop: true });
+    expect(collect[1]).to.deep.equal({ ...testEvents[1], prop: true });
+    expect(collect[2]).to.deep.equal({ ...testEvents[2], prop: true });
+  });
+
+  it('should call the observer function after mapping', async () => {
+    const collect = [];
+    const options = {
+      map: {
+        prop: () => true,
+      },
+      observe: (item) => {
+        item.bla = true; // eslint-disable-line no-param-reassign
+        collect.push(item);
+      },
+    };
+    await pipe(options, testEvents);
+    expect(collect.length).to.equal(3);
+    expect(collect[0]).to.deep.equal({ ...testEvents[0], prop: true, bla: true });
+    expect(collect[1]).to.deep.equal({ ...testEvents[1], prop: true, bla: true });
+    expect(collect[2]).to.deep.equal({ ...testEvents[2], prop: true, bla: true });
+  });
 });

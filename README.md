@@ -1,7 +1,7 @@
 # good-map
 
 Transform stream for [Hapi Good](https://github.com/hapijs/good) process monitoring.
-Properties of the incoming object stream can be modified with your own mapping functions.
+Modify the incoming object stream with your own mapping functions.
 
 [![Build Status](https://travis-ci.org/frankthelen/good-map.svg?branch=master)](https://travis-ci.org/frankthelen/good-map)
 [![Coverage Status](https://coveralls.io/repos/github/frankthelen/good-map/badge.svg?branch=master)](https://coveralls.io/github/frankthelen/good-map?branch=master)
@@ -63,10 +63,11 @@ await server.start();
 
 The `good-map` transform stream can be placed anywhere in the pipeline where log values are still objects, e.g., after `Squeeze`.
 
-`GoodMap(rules, [options])` has the following parameters:
+`args` in the Good configuration for `good-map` is an array with two arguments which are passed to `GoodMap(rules, [options])`:
 
- * `rules`: An object with the following parameters:
-   - `events`: An optional list of Hapi server events, e.g., `['request']`, for filtering purposes.
-   - `tags`: An optional list of event tags, e.g., `['error']`, for filtering purposes.
-   - `map`: An object mapping log item properties (including deep properties separated by dots), e.g., `timestamp` or `error.message`, using a mapping function of the form `value => 'newValue'`, e.g., `() => '***'` or `str => str.toUpperCase()`. If a property does not exist (before), it will *not* be set. If the mapping function returns `undefined`, the property will be deleted. If the mapping function throws an error (for whatever reason), the error will be suppressed.
- * `options`: Optional configuration object that gets passed to the Node [Stream.Transform](http://nodejs.org/api/stream.html#stream_class_stream_transform) constructor. `objectMode` is always `true`.
+ * `rules`: An object with the following parameters (all optional):
+   - `events`: A list of Hapi server event types, e.g., `['request']`, for filtering purposes.
+   - `tags`: A list of event tags, e.g., `['error']`, for filtering purposes.
+   - `map`: An object that maps the log item's properties (including deep properties separated by dots), e.g., `timestamp` or `'error.message'` to a mapping function (synchronous). It has the form `(value) => 'newValue'`, e.g., `() => '***'` or `str => str.toUpperCase()`. If a property does not exist (before), it is *not* set. If the mapping function returns `undefined`, the property is deleted. If the mapping function throws an error, the error is ignored. For full flexibility, the second parameter provides access to the complete log item: `(value, item) => ...`.
+   - `observe`: Listen to the complete log item as it appears in the stream. The observer function (synchronous) has the form `(item) => { ... }`. If the observer function throws an error, the error is ignored.
+ * `options`: An optional configuration object that gets passed to the Node [Stream.Transform](http://nodejs.org/api/stream.html#stream_class_stream_transform) constructor. `objectMode` is always `true`.
