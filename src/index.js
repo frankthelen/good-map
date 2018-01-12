@@ -6,13 +6,17 @@ const unset = require('lodash.unset');
 class GoodMap extends Stream.Transform {
   constructor(rules = {}, options = {}) {
     super({ ...options, objectMode: true });
-    const { events = [], tags = [], map = {} } = rules;
+    const {
+      events = [], tags = [], map = {}, observe = () => {},
+    } = rules;
     this.events = events;
     this.tags = tags;
     this.map = map;
     this.props = Object.keys(map);
+    this.observe = observe;
   }
   _transform(data, enc, next) {
+    // filter
     const { event, tags = [] } = data;
     if (this.events.length && !this.events.includes(event)) {
       return next(null, data);
@@ -20,13 +24,14 @@ class GoodMap extends Stream.Transform {
     if (this.tags.length && !this.tags.reduce((acc, tag) => acc || tags.includes(tag), false)) {
       return next(null, data);
     }
+    // map properties
     this.props.forEach((prop) => {
       try {
         const value = get(data, prop);
         if (value === undefined) {
           // do nothing
         } else {
-          const newValue = this.map[prop](value);
+          const newValue = this.map[prop](value, data);
           if (newValue === undefined) {
             unset(data, prop);
           } else {
@@ -37,6 +42,13 @@ class GoodMap extends Stream.Transform {
         // ignore
       }
     });
+    // observe
+    try {
+      this.observe(data);
+    } catch (error) {
+      // ignore
+    }
+    // continue
     return next(null, data);
   }
 }
