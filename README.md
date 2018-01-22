@@ -5,11 +5,12 @@ Modify the incoming object stream with your own mapping functions.
 
 [![Build Status](https://travis-ci.org/frankthelen/good-map.svg?branch=master)](https://travis-ci.org/frankthelen/good-map)
 [![Coverage Status](https://coveralls.io/repos/github/frankthelen/good-map/badge.svg?branch=master)](https://coveralls.io/github/frankthelen/good-map?branch=master)
-[![dependencies Status](https://david-dm.org/frankthelen/good-map/status.svg)](https://david-dm.org/frankthelen/good-map)
+[![Dependency Status](https://gemnasium.com/badges/github.com/frankthelen/good-map.svg)](https://gemnasium.com/github.com/frankthelen/good-map)
 [![Greenkeeper badge](https://badges.greenkeeper.io/frankthelen/good-map.svg)](https://greenkeeper.io/)
 [![Maintainability](https://api.codeclimate.com/v1/badges/2b21f79b2657870c146f/maintainability)](https://codeclimate.com/github/frankthelen/good-map/maintainability)
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Ffrankthelen%2Fgood-map.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Ffrankthelen%2Fgood-map?ref=badge_shield)
 [![node](https://img.shields.io/node/v/good-map.svg)]()
+[![code style](https://img.shields.io/badge/code_style-airbnb-brightgreen.svg)](https://github.com/airbnb/javascript)
 [![License Status](http://img.shields.io/npm/l/good-map.svg)]()
 
 ## Install
@@ -44,6 +45,9 @@ const options = {
           'database.password': () => '***',
           'error.stack': stack => truncate(stack),
         },
+        observe: (item) => {
+          item.service = 'bla';
+        },
       }],
     }, {
       module: 'good-console',
@@ -69,5 +73,5 @@ The `good-map` transform stream can be placed anywhere in the pipeline where log
    - `events`: A list of Hapi server event types, e.g., `['request']`, for filtering purposes.
    - `tags`: A list of event tags, e.g., `['error']`, for filtering purposes.
    - `map`: An object that maps the log item's properties (including deep properties separated by dots), e.g., `timestamp` or `'error.message'` to a mapping function (synchronous). It has the form `(value) => 'newValue'`, e.g., `() => '***'` or `str => str.toUpperCase()`. If a property does not exist (before), it is *not* set. If the mapping function returns `undefined`, the property is deleted. If the mapping function throws an error, the error is ignored. For full flexibility, the second parameter provides access to the complete log item: `(value, item) => ...`.
-   - `observe`: Listen to the complete log item as it appears in the stream. The observer function (synchronous) has the form `(item) => { ... }`. If the observer function throws an error, the error is ignored.
+   - `observe`: Listen to the complete log item as it appears in the stream. The observer function (synchronous) has the form `(item) => { ... }`. Use this hook to read and write to the log item. If the observer function throws an error, the error is ignored.
  * `options`: An optional configuration object that gets passed to the Node [Stream.Transform](http://nodejs.org/api/stream.html#stream_class_stream_transform) constructor. `objectMode` is always `true`.

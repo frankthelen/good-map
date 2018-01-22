@@ -1,7 +1,5 @@
+const _ = require('lodash');
 const Stream = require('stream');
-const get = require('lodash.get');
-const set = require('lodash.set');
-const unset = require('lodash.unset');
 
 class GoodMap extends Stream.Transform {
   constructor(rules = {}, options = {}) {
@@ -27,15 +25,15 @@ class GoodMap extends Stream.Transform {
     // map properties
     this.props.forEach((prop) => {
       try {
-        const value = get(data, prop);
+        const value = _.get(data, prop);
         if (value === undefined) {
           // do nothing
         } else {
           const newValue = this.map[prop](value, data);
           if (newValue === undefined) {
-            unset(data, prop);
+            _.unset(data, prop);
           } else {
-            set(data, prop, newValue);
+            _.set(data, prop, newValue);
           }
         }
       } catch (error) {
