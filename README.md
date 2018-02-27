@@ -8,7 +8,6 @@ Modify the incoming object stream with your own mapping functions.
 [![Dependency Status](https://gemnasium.com/badges/github.com/frankthelen/good-map.svg)](https://gemnasium.com/github.com/frankthelen/good-map)
 [![Greenkeeper badge](https://badges.greenkeeper.io/frankthelen/good-map.svg)](https://greenkeeper.io/)
 [![Maintainability](https://api.codeclimate.com/v1/badges/2b21f79b2657870c146f/maintainability)](https://codeclimate.com/github/frankthelen/good-map/maintainability)
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Ffrankthelen%2Fgood-map.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Ffrankthelen%2Fgood-map?ref=badge_shield)
 [![node](https://img.shields.io/node/v/good-map.svg)]()
 [![code style](https://img.shields.io/badge/code_style-airbnb-brightgreen.svg)](https://github.com/airbnb/javascript)
 [![License Status](http://img.shields.io/npm/l/good-map.svg)]()
@@ -16,7 +15,7 @@ Modify the incoming object stream with your own mapping functions.
 ## Install
 
 ```bash
-npm install --save good-map
+npm install good-map
 ```
 
 ## Usage
