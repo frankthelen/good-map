@@ -7,7 +7,7 @@ Modify the incoming object stream with your own mapping functions.
 [![Coverage Status](https://coveralls.io/repos/github/frankthelen/good-map/badge.svg?branch=master)](https://coveralls.io/github/frankthelen/good-map?branch=master)
 [![Dependency Status](https://gemnasium.com/badges/github.com/frankthelen/good-map.svg)](https://gemnasium.com/github.com/frankthelen/good-map)
 [![Greenkeeper badge](https://badges.greenkeeper.io/frankthelen/good-map.svg)](https://greenkeeper.io/)
-[![Maintainability](https://api.codeclimate.com/v1/badges/2b21f79b2657870c146f/maintainability)](https://codeclimate.com/github/frankthelen/good-map/maintainability)
+[![Maintainability](https://api.codeclimate.com/v1/badges/e8f1b067534e0387bdcf/maintainability)](https://codeclimate.com/github/frankthelen/good-map/maintainability)
 [![node](https://img.shields.io/node/v/good-map.svg)]()
 [![code style](https://img.shields.io/badge/code_style-airbnb-brightgreen.svg)](https://github.com/airbnb/javascript)
 [![License Status](http://img.shields.io/npm/l/good-map.svg)]()
