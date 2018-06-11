@@ -5,7 +5,7 @@ Modify the incoming object stream with your own mapping functions.
 
 [![Build Status](https://travis-ci.org/frankthelen/good-map.svg?branch=master)](https://travis-ci.org/frankthelen/good-map)
 [![Coverage Status](https://coveralls.io/repos/github/frankthelen/good-map/badge.svg?branch=master)](https://coveralls.io/github/frankthelen/good-map?branch=master)
-[![Dependency Status](https://gemnasium.com/badges/github.com/frankthelen/good-map.svg)](https://gemnasium.com/github.com/frankthelen/good-map)
+[![dependencies Status](https://david-dm.org/frankthelen/good-map/status.svg)](https://david-dm.org/frankthelen/good-map)
 [![Greenkeeper badge](https://badges.greenkeeper.io/frankthelen/good-map.svg)](https://greenkeeper.io/)
 [![Maintainability](https://api.codeclimate.com/v1/badges/e8f1b067534e0387bdcf/maintainability)](https://codeclimate.com/github/frankthelen/good-map/maintainability)
 [![node](https://img.shields.io/node/v/good-map.svg)]()
