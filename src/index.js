@@ -13,6 +13,7 @@ class GoodMap extends Stream.Transform {
     this.props = Object.keys(map);
     this.observe = observe;
   }
+
   _transform(data, enc, next) {
     // filter
     const { event, tags = [] } = data;
