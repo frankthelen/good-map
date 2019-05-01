@@ -1,6 +1,6 @@
 {
   "name": "good-map",
-  "version": "1.1.16",
+  "version": "1.1.17",
   "description": "Transform stream for Hapi Good process monitoring",
   "main": "src/index.js",
   "repository": {
