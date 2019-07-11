@@ -31,7 +31,7 @@ const server = new Hapi.Server();
 const options = {
   reporters: {
     myConsoleReporter: [{
-      module: 'good-squeeze',
+      module: '@hapi/good-squeeze',
       name: 'Squeeze',
       args: [{ log: '*', response: '*' }],
     }, {
@@ -49,7 +49,7 @@ const options = {
         },
       }],
     }, {
-      module: 'good-console',
+      module: '@hapi/good-console',
     }, 'stdout'],
   },
 };
