@@ -14,7 +14,7 @@ class GoodMap extends Stream.Transform {
     this.observe = observe;
   }
 
-  _transform(data, enc, next) {
+  _transform(data, enc, next) { // eslint-disable-line no-underscore-dangle
     // filter
     const { event, tags = [] } = data;
     if (this.events.length && !this.events.includes(event)) {

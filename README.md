@@ -23,8 +23,8 @@ npm install good-map
 Your Good logging configuration may look like this:
 
 ```javascript
-const Hapi = require('hapi');
-const Good = require('good'),
+const Hapi = require('@hapi/hapi');
+const Good = require('@hapi/good'),
 
 const server = new Hapi.Server();
 
@@ -45,7 +45,7 @@ const options = {
           'error.stack': stack => truncate(stack),
         },
         observe: (item) => {
-          item.service = 'bla';
+          item.service = 'foo';
         },
       }],
     }, {
