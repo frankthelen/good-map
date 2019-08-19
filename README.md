@@ -40,9 +40,9 @@ const options = {
         events: ['log'],
         tags: ['error'],
         map: {
-          timestamp: ms => moment(ms).utc().format(),
+          timestamp: (ms) => moment(ms).utc().format(),
           'database.password': () => '***',
-          'error.stack': stack => truncate(stack),
+          'error.stack': (stack) => truncate(stack),
         },
         observe: (item) => {
           item.service = 'foo';

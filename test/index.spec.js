@@ -112,7 +112,7 @@ describe('GoodMap', () => {
   it('should transform property (if exists)', async () => {
     const options = {
       map: {
-        timestamp: ms => moment(ms).utc().format(),
+        timestamp: (ms) => moment(ms).utc().format(),
       },
     };
     const result = await pipe(options, testEvents);
