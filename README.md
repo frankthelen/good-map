@@ -14,7 +14,7 @@ Modify the incoming object stream with your own mapping functions.
 
 Tested with
 * Node 12/13, Hapi 19, Good 9
-* Node 10/8, Hapi 18, Good 8
+* Node 10, Hapi 18, Good 8
 
 ## Install
 
