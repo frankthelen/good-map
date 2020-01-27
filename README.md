@@ -12,6 +12,10 @@ Modify the incoming object stream with your own mapping functions.
 [![code style](https://img.shields.io/badge/code_style-airbnb-brightgreen.svg)](https://github.com/airbnb/javascript)
 [![License Status](http://img.shields.io/npm/l/good-map.svg)]()
 
+Tested with
+* Node 12/13, Hapi 19, Good 9
+* Node 10/8, Hapi 18, Good 8
+
 ## Install
 
 ```bash

@@ -23,32 +23,38 @@
   "homepage": "https://github.com/frankthelen/good-map#readme",
   "scripts": {
     "lint": "eslint . --ignore-path ./.eslintignore",
-    "test": "NODE_ENV=test mocha --recursive test",
-    "cover": "NODE_ENV=test nyc --reporter=lcov --reporter=text-summary mocha --exit --recursive test",
-    "coveralls": "npm run cover && nyc report --reporter=lcovonly && cat ./coverage/lcov.info | coveralls",
+    "test": "NODE_ENV=test nyc --reporter=lcov --reporter=text-summary mocha --exit --recursive test",
+    "coveralls": "nyc report --reporter=lcovonly && cat ./coverage/lcov.info | coveralls",
     "preversion": "npm run lint && npm test"
   },
   "engines": {
     "node": ">=8.9.0"
   },
   "devDependencies": {
+    "@hapi/good-console": "^9.0.0",
+    "@hapi/good-squeeze": "^6.0.0",
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
-    "coveralls": "^3.0.6",
-    "eslint": "^6.2.0",
+    "coveralls": "^3.0.9",
+    "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-import": "^2.20.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-should-promised": "^2.0.0",
-    "mocha": "^6.2.0",
+    "good8": "npm:@hapi/good@^8.2.4",
+    "good9": "npm:@hapi/good@^9.0.0",
+    "hapi18": "npm:@hapi/hapi@^18.4.0",
+    "hapi19": "npm:@hapi/hapi@^19.0.5",
+    "mocha": "^7.0.1",
     "moment": "^2.24.0",
-    "nyc": "^14.1.1",
-    "sinon": "^7.4.1",
-    "sinon-chai": "^3.3.0"
+    "nyc": "^15.0.0",
+    "semver": "^7.1.1",
+    "sinon": "^8.1.1",
+    "sinon-chai": "^3.4.0"
   },
   "peerDependencies": {
-    "@hapi/hapi": "*",
-    "@hapi/good": "*"
+    "@hapi/hapi": ">=17.x.x",
+    "@hapi/good": ">=8.x.x"
   },
   "dependencies": {
     "lodash": "^4.17.15"
