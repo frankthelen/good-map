@@ -6,14 +6,14 @@ Modify the incoming object stream with your own mapping functions.
 [![Build Status](https://travis-ci.org/frankthelen/good-map.svg?branch=master)](https://travis-ci.org/frankthelen/good-map)
 [![Coverage Status](https://coveralls.io/repos/github/frankthelen/good-map/badge.svg?branch=master)](https://coveralls.io/github/frankthelen/good-map?branch=master)
 [![dependencies Status](https://david-dm.org/frankthelen/good-map/status.svg)](https://david-dm.org/frankthelen/good-map)
-[![Greenkeeper badge](https://badges.greenkeeper.io/frankthelen/good-map.svg)](https://greenkeeper.io/)
 [![Maintainability](https://api.codeclimate.com/v1/badges/e8f1b067534e0387bdcf/maintainability)](https://codeclimate.com/github/frankthelen/good-map/maintainability)
 [![node](https://img.shields.io/node/v/good-map.svg)]()
 [![code style](https://img.shields.io/badge/code_style-airbnb-brightgreen.svg)](https://github.com/airbnb/javascript)
 [![License Status](http://img.shields.io/npm/l/good-map.svg)]()
 
 Tested with
-* Node 12/13, Hapi 19, Good 9
+
+* Node 12/14/15, Hapi 19/20, Good 9
 * Node 10, Hapi 18, Good 8
 
 ## Install
